@@ -38,7 +38,26 @@ module.exports = app => {
         });
 
 
-    })
+    //notes.html are displayed and accessed
+        app.get("/notes", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/notes.html"));
+
+        });
+
+    //index.html are displayed when they are accessed through routes
+        app.get("*", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/index.html"));
+        });
+
+    //This will update the json files when ever they area added or deleted
+        function updateDb() {
+            fs.writeFile("db/db.json", JSON.stringify(notes,"\t"), err => {
+                if (err) throw err;
+                return true;
+            });
+        }
+
+    });
 
 
 }
