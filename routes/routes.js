@@ -16,25 +16,24 @@ module.exports = app => {
         });
 
     //This is the setup of the API/notes posting route
-        app.post("/api/notes", function(req, res){
+        app.post("/api/notes", function(req, res) {
         //here a new note is received and adds it to db.json, then returns the new note
             let newNote = req.body;
             notes.push(newNote);
             updateDb();
-            return console.log("New Note Added: " +newNote.title);
+            return console.log("New Note Added: " + newNote.title);
         });
 
     //here the note is retrieved by a specific id    
         app.get("/api/notes/:id", function(req, res){
-
             res.json(notes[req.params.id]);
         });
 
     // This deletes a note with a specific id    
-        app.get("/notes", function(req, res) {
+        app.delete("/api/notes", function(req, res) {
             notes.splice(req.params.id, 1);
             updateDb();
-            console.log("Delete note with id " +req.params.id);
+            console.log("Delete note with id " + req.params.id);
         });
 
 
