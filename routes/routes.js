@@ -34,7 +34,7 @@ module.exports = app => {
         app.get("/notes", function(req, res) {
             notes.splice(req.params.id, 1);
             updateDb();
-            console.log("Delelte note with id " +req.params.id);
+            console.log("Delete note with id " +req.params.id);
         });
 
 
