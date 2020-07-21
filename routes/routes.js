@@ -6,7 +6,7 @@ module.exports = app => {
     //Variables for the notes
     fs.readFile("db/db.json", "utf8", (err, data) => {
         if (err) throw err;
-        var notes = JSON.parse(data);
+        const notes = JSON.parse(data);
 
     //API routes
     //This is for the route setup of API/notes
