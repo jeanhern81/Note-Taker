@@ -19,6 +19,26 @@ module.exports = app => {
         });
 
 
+        app.post("/api/notes", function(req, res){
+
+            let newNote = req.body;
+            notes.push(newNote);
+            updateDb();
+            return console.log("New Note Added: " +newNote.title);
+        });
+
+        app.get("/api/notes/:id", function(req, res){
+
+            res.json(notes[req.params.id]);
+        });
+
+
+        app.get("/notes", function(req, res) {
+            notes.splice(req.params.id, 1);
+            updateDb();
+            console.log("Delelte note with id " +req.params.id);
+        });
+
 
     })
 
