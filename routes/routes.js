@@ -21,19 +21,20 @@ module.exports = app => {
             let newNote = req.body;
             notes.push(newNote);
             updateDb();
-            return console.log("New Note Added: " + newNote.title);
+            return console.log("New Note Added: "+newNote.title);
         });
 
     //here the note is retrieved by a specific id    
-        app.get("/api/notes/:id", function(req, res){
+        
+        app.get("/api/notes/:id", function(req, res) {
             res.json(notes[req.params.id]);
         });
 
     // This deletes a note with a specific id    
-        app.delete("/api/notes", function(req, res) {
+        app.delete("/api/notes/:id", function(req, res) {
             notes.splice(req.params.id, 1);
             updateDb();
-            console.log("Delete note with id " + req.params.id);
+            console.log("Delete note with id "+req.params.id);
         });
 
 
@@ -50,7 +51,7 @@ module.exports = app => {
 
     //This will update the json files when ever they area added or deleted
         function updateDb() {
-            fs.writeFile("db/db.json", JSON.stringify(notes,"\t"), err => {
+            fs.writeFile("db/db.json",JSON.stringify(notes,"\t"),err => {
                 if (err) throw err;
                 return true;
             });
