@@ -5,7 +5,7 @@
 ---
 ## Description:
 
-This note taking application allows the user to create, view, and delete notes as needed. It's user frieldy desing makes it easy for anyone to use. 
+### This note taking application allows the user to create, view, and delete notes as needed. It's user frieldy desing makes it easy for anyone to use. 
 ---
 ## Demo:
 
