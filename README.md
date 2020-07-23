@@ -17,9 +17,10 @@ The notes are dynamically created and will appear on the left side of the applic
 ![](./imagesDemo/screenshotNotes.JPG)
 
 
-## Deployed Website
+## Deployed Website:
 
-<a href="https://sheltered-savannah-72983.herokuapp.com/">Note Taker Application Link</a>
+<a href="https://sheltered-savannah-72983.herokuapp.com/"> Note Taker Application Link </a>
+
 ---
 ## Instalation:
 To use this application you must clone the repository into your local computer. 
