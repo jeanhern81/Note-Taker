@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname));
 
-//Require routes file
+//Required routes file
 require("./routes/routes")(app);
 
 // Setup listener
