@@ -5,7 +5,9 @@
 ---
 ## Description:
 
-This note taking application allows the user to create, view, and delete notes as needed. It's user frieldy desing makes it easy for anyone to use. 
+This note taking application allows the user to create, view, and delete notes as needed. It allows the user to easily organize their thoughts, keep track of task, and anything else they need to keep track of. 
+
+The notes are dynamically created and will appear on the left side of the application. 
 
 ---
 ## Demo:
