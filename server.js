@@ -1,5 +1,3 @@
-
-
 //these dependencies are required
 const express = require("express");
 const fs = require("fs");

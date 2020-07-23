@@ -1,12 +1,15 @@
 const fs = require("fs");
 const path = require("path");
 
+
+
+
 module.exports = app => {
 
     //Variables for the notes
     fs.readFile("db/db.json", "utf8", (err, data) => {
         if (err) throw err;
-        const notes = JSON.parse(data);
+        let notes = JSON.parse(data);
 
     //API routes
     //This is for the route setup of API/notes
@@ -18,7 +21,7 @@ module.exports = app => {
     //This is the setup of the API/notes posting route
         app.post("/api/notes", function(req, res) {
         //here a new note is received and adds it to db.json, then returns the new note
-            let newNote = req.body;
+            
             notes.push(newNote);
             updateDb();
             return console.log("New Note Added: "+newNote.title);
@@ -32,12 +35,15 @@ module.exports = app => {
 
     // This deletes a note with a specific id    
         app.delete("/api/notes/:id", function(req, res) {
+            //let note_id = parseInt(req.params.id);
+            
             notes.splice(req.params.id, 1);
             updateDb();
             console.log("Delete note with id "+req.params.id);
         });
 
-
+    
+    //HTML Paths    
     //notes.html are displayed and accessed
         app.get("/notes", function(req, res) {
             res.sendFile(path.join(__dirname, "../public/notes.html"));
@@ -60,4 +66,4 @@ module.exports = app => {
     });
 
 
-}
+};

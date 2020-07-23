@@ -16,7 +16,7 @@ var getNotes = function() {
 };
 
 // A function for saving a note to the db
-var saveNote = function(note) {
+var saveNote = function (note) {
   return $.ajax({
     url: "/api/notes",
     data: note,
@@ -25,11 +25,11 @@ var saveNote = function(note) {
 };
 
 // A function for deleting a note from the db
-var deleteNote = function(id) {
+var deleteNote = function (id) {
   return $.ajax({
     url: "api/notes/" + id,
-    method: "DELETE"
-  })
+    method: "DELETE",
+  });
 };
 
 // If there is an activeNote, display it, otherwise render empty inputs
@@ -50,10 +50,10 @@ var renderActiveNote = function() {
 };
 
 // Get the note data from the inputs, save it to the db and update the view
-var handleNoteSave = function() {
+var handleNoteSave = function () {
   var newNote = {
     title: $noteTitle.val(),
-    text: $noteText.val()
+    text: $noteText.val(),
   };
 
   saveNote(newNote);
@@ -62,11 +62,11 @@ var handleNoteSave = function() {
 };
 
 // Delete the clicked note
-var handleNoteDelete = function(event) {
+var handleNoteDelete = function (event) {
   // prevents the click listener for the list from being called when the button inside of it is clicked
   event.stopPropagation();
 
-  var note = $(this).data('id');
+  var note = $(this).data("id");
 
   if (activeNote.id === note) {
     activeNote = {};
@@ -78,7 +78,7 @@ var handleNoteDelete = function(event) {
 };
 
 // Sets the activeNote and displays it
-var handleNoteView = function() {
+var handleNoteView = function () {
   activeNote = $(this).data();
   renderActiveNote();
 };
@@ -91,7 +91,7 @@ var handleNewNoteView = function() {
 
 // If a note's title or text are empty, hide the save button
 // Or else show it
-var handleRenderSaveBtn = function() {
+var handleRenderSaveBtn = function () {
   if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
     $saveNoteBtn.hide();
   } else {
@@ -100,7 +100,7 @@ var handleRenderSaveBtn = function() {
 };
 
 // Render's the list of note titles
-var renderNoteList = function(notes) {
+var renderNoteList = function (notes) {
   $noteList.empty();
 
   var noteListItems = [];
@@ -112,8 +112,7 @@ var renderNoteList = function(notes) {
     $li.data('id',i);
 
     var $span = $("<span>").text(note.title);
-    var $delBtn = $(
-      "<i class='fas fa-trash-alt float-right text-danger delete-note' data-id="+i+">"
+    var $delBtn = $("<i class='fas fa-trash-alt float-right text-danger delete-note' data-id="+i+">"
     );
 
     $li.append($span, $delBtn);
