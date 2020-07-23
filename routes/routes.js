@@ -2,37 +2,37 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = (app) => {
-  // Setup notes variable
+  // Variables for the notes
   fs.readFile("db/db.json", "utf8", (err, data) => {
     if (err) throw err;
 
     var notes = JSON.parse(data);
 
     // API ROUTES
-    // ========================================================
+    
 
-    // Setup the /api/notes get route
+    // This is for the route setup of API and notes
     app.get("/api/notes", function (req, res) {
-      // Read the db.json file and return all saved notes as JSON.
+      //db.json file and return of all saved notes as json
       res.json(notes);
     });
 
-    // Setup the /api/notes post route
+    // This is the setup of the API and notes posting route
     app.post("/api/notes", function (req, res) {
-      // Receives a new note, adds it to db.json, then returns the new note
+      // Here a new note is received, added to db.json, then returns the new note
       let newNote = req.body;
       notes.push(newNote);
       updateDb();
-      return console.log("Added new note: " + newNote.title);
+      return console.log("Added a new note: " + newNote.title);
     });
 
-    // Retrieves a note with specific id
+    // Here the note is retrieves with specific id
     app.get("/api/notes/:id", function (req, res) {
       // display json for the notes array indices of the provided id
       res.json(notes[req.params.id]);
     });
 
-    // Deletes a note with specific id
+    // This deletes a note with specific id
     app.delete("/api/notes/:id", function (req, res) {
       notes.splice(req.params.id, 1);
       updateDb();
@@ -40,19 +40,19 @@ module.exports = (app) => {
     });
 
     // VIEW ROUTES
-    // ========================================================
+    
 
-    // Display notes.html when /notes is accessed
+    // This is where notes.html is accessed and displayed
     app.get("/notes", function (req, res) {
       res.sendFile(path.join(__dirname, "../public/notes.html"));
     });
 
-    // Display index.html when all other routes are accessed
+    //index.html are displayed when they are accessed
     app.get("*", function (req, res) {
       res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    //updates the json file whenever a note is added or deleted
+    //this will update the json file whenever a note is added or deleted
     function updateDb() {
       fs.writeFile("db/db.json", JSON.stringify(notes, "\t"), (err) => {
         if (err) throw err;
