@@ -6,12 +6,12 @@ This note taking application allows the user to create, view, and delete notes.
 ---
 ## Demo:
 
-![gif](./Note-Taker/imagesDemo/NoteTakerDemo.gif)
-![](./Note-Taker/imagesDemo/screenshotHome.JPG)
-![](./Note-Taker/imagesDemo/screenshotNotes/JPG)
+![gif](./imagesDemo/NoteTakerDemo.gif)
+![](./imagesDemo/screenshotHome.JPG)
+![](./imagesDemo/screenshotNotes.JPG)
 
 ---
-## Note Taker Application:
+## Note Taker Application Link:
 
 
 ---
@@ -25,10 +25,10 @@ Install the required dependencies. To use the application open `localhost:3001` 
 
 ---
 ## Technologies Used:
-    * JavaScript
-    * NodeJS
-    * Node Packages: 
-        * Express
+* JavaScript
+* NodeJS
+* Node Packages: 
+    * Express
 
 
 ---
