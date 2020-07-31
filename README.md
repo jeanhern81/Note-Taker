@@ -22,7 +22,7 @@ The notes are dynamically created and will appear on the left side of the applic
 <a href="https://sheltered-savannah-72983.herokuapp.com/"> Note Taker Application Link </a>
 
 ---
-## Instalation:
+## Installation:
 To use this application you must clone the repository into your local computer. 
 
 `git@github.com:jeanhern81/Note-Taker.git`
